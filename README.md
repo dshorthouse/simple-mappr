@@ -3,6 +3,7 @@ simple-mappr
 
 [![Gem Version][1]][2]
 [![Continuous Integration Status][3]][4]
+[![Dependency Status][10]][11]
 
 Ruby Gem wrapper for the SimpleMappr API
 ----------------------------------------
@@ -47,3 +48,5 @@ Copyright (c) 2016 David P. Shorthouse
 [7]: https://github.com/dshorthouse/simple-mappr/issues
 [8]: https://github.com/dshorthouse
 [9]: http://www.simplemppr.net
+[10]: https://gemnasium.com/dshorthouse/simple-mappr.svg
+[11]: https://gemnasium.com/dshorthouse/name-spotter

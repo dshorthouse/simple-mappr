@@ -21,5 +21,5 @@ Gem::Specification.new do |s|
   s.add_development_dependency "rake", "~> 11.1"
   s.add_development_dependency "rspec", "~> 3.4"
   s.add_development_dependency "bundler", "~> 1.10"
-  s.add_development_dependency "byebug", "~> 8.2"
+  s.add_development_dependency "byebug", "~> 9.0"
 end
