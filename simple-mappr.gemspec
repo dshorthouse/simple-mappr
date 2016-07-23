@@ -5,7 +5,6 @@ require "simple-mappr/version"
 Gem::Specification.new do |s|
   s.name        = 'simple-mappr'
   s.version     = SimpleMappr::VERSION
-  s.required_ruby_version = '>= 2.3.0'
   s.license     = 'MIT'
   s.date        = '2016-07-20'
   s.summary     = "A gem to access the SimpleMappr API"
