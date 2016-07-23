@@ -1,6 +1,9 @@
 #Gemfile.lock 
 Gemfile.lock
 
+#Built gems
+*.gem
+
 # rcov generated
 coverage
 
