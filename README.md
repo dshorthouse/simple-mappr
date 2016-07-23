@@ -18,9 +18,31 @@ Download and Installation
 
 The latest version of SimpleMappr can be installed with RubyGems:
 
-  $ gem install simple-mappr
+    $ gem install simple-mappr
 
 Source code can be downloaded on [GitHub][5].
+
+Example
+-------
+
+    require 'simple-mappr'
+    sm = SimpleMappr.new
+    sm.points = ['45,-120\n50,-110','47,-100']
+    sm.color = ['255,0,0','0,255,0']
+    sm.size = [12,14]
+    sm.shape = ['circle','triangle']
+    sm.layers = 'blueMarble'
+    sm.zoom = 4
+    sm.width = 450
+    sm.create
+
+Returns a Hash:
+
+    {:imageURL=>"http://img.simplemappr.net/5792da8e_24f7_0.png", :expiry=>"2016-07-23T04:46:39-04:00"}
+
+Corresponding to the image:
+
+![SimpleMappr](spec/files/example.png)
 
 License
 -------
