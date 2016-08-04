@@ -147,6 +147,9 @@ describe "SimpleMappr" do
     end
 
     context "output" do
+      it "specifies png as default output format" do
+        expect(sm.output).to eq("png")
+      end
       it "accepts a valid output format" do
         sm.output = "svg"
         expect(sm.output).to eq("svg")
@@ -292,6 +295,12 @@ describe "SimpleMappr" do
       end
       it "raises an exception with a zoom that is too large" do
         expect{sm.zoom = 11}.to raise_error(subject::InvalidParameterValue)
+      end
+    end
+
+    context "download" do
+      it "raises an exception if file_name is not specified" do
+        expect{sm.download}.to raise_error(subject::InvalidParameterValue)
       end
     end
 

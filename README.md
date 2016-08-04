@@ -22,8 +22,8 @@ The latest version of SimpleMappr can be installed with RubyGems:
 
 Source code can be downloaded on [GitHub][5].
 
-Example
--------
+Example 1
+---------
 
     require 'simple-mappr'
     sm = SimpleMappr.new
@@ -43,6 +43,14 @@ Returns a Hash:
 Corresponding to the image:
 
 ![SimpleMappr](spec/files/example.png)
+
+Example 2
+---------
+
+    require 'simple-mappr'
+    sm.SimpleMappr.new
+    sm.points = ['45,-120\n50,-110','47,-100']
+    sm.download("/tmp/my-map")
 
 License
 -------

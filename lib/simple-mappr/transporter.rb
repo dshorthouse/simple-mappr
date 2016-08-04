@@ -1,5 +1,6 @@
 require "rest_client"
 require "json"
+require "open-uri"
 require "simple-mappr/validator"
 
 class SimpleMappr

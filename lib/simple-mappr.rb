@@ -2,6 +2,7 @@ require "simple-mappr/constants"
 require "simple-mappr/exceptions"
 require "simple-mappr/transporter"
 require "simple-mappr/validator"
+require "simple-mappr/version"
 
 class SimpleMappr
 
@@ -41,6 +42,28 @@ class SimpleMappr
   end
 
   ##
+  # Send the SimpleMappr object to the RESTful API and a file title
+  # without extension and download the resulting image
+  # Returns the file path for the downloaded file
+  #
+  # == Example
+  #
+  #   instance.download("/tmp/my_map")
+  # Returns
+  #   /tmp/my_map.png
+  #
+  def download(file_title = nil)
+    if !file_title
+      raise InvalidParameterValue, "File path is required"
+    end
+    file = [file_title,output].join(".")
+    File.open(file, 'wb') do |fo|
+      fo.write open(create[:imageURL]).read 
+    end
+    file
+  end
+
+  ##
   # Set a bounding box in decimal degrees as minx,miny,maxx,maxy
   #
   # == Example
@@ -77,7 +100,7 @@ class SimpleMappr
   #
   # == Example
   #
-  #   instance.file = "/Users/SimpleMappr/demo.txt"
+  #   instance.file_path = "/Users/SimpleMappr/demo.txt"
   #
   def file_path=(file_path)
     Validator.validate_type(file_path, 'File')
@@ -145,7 +168,7 @@ class SimpleMappr
   #
   # == Example
   #
-  #   instance.layers = ['My First Legend','My Second Legend']
+  #   instance.legend = ['My First Legend','My Second Legend']
   #
   def legend=(legend)
     Validator.validate_type(legend, 'Array')
@@ -202,7 +225,7 @@ class SimpleMappr
   end
 
   def output
-    @parameters[:output] || nil
+    @parameters[:output] || "png"
   end
 
   ##
