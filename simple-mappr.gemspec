@@ -6,7 +6,7 @@ Gem::Specification.new do |s|
   s.name        = 'simple-mappr'
   s.version     = SimpleMappr::VERSION
   s.license     = 'MIT'
-  s.date        = '2016-07-20'
+  s.date        = '2016-08-04'
   s.summary     = "A gem to access the SimpleMappr API"
   s.description = "A gem to access the SimpleMappr API"
   s.authors     = ["David P. Shorthouse"]
@@ -17,7 +17,6 @@ Gem::Specification.new do |s|
   s.require_path = 'lib'
   s.rdoc_options.concat ['--encoding',  'UTF-8']
   s.add_runtime_dependency "rest-client", "~> 2.0"
-  s.add_runtime_dependency "json", "~> 2.0"
   s.add_development_dependency "rake", "~> 11.1"
   s.add_development_dependency "rspec", "~> 3.4"
   s.add_development_dependency "bundler", "~> 1.10"
