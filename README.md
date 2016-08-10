@@ -23,7 +23,7 @@ The latest version of SimpleMappr can be installed with RubyGems:
 $ gem install simple-mappr
 ```
 
-Source code can be downloaded on [GitHub][5]. See the public methods to learn all the setter.
+Source code can be downloaded on [GitHub][5]. See the [public methods](lib/simple-mappr.rb) to learn all the setters.
 
 Example 1
 ---------
