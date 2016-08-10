@@ -8,37 +8,44 @@ simple-mappr
 Ruby Gem wrapper for the SimpleMappr API
 ----------------------------------------
 
-simple-mappr is a ruby gem wrapper to send structured, geographic data to
-the [SimpleMappr][9] API and receive a hash in
-return containing a URL to the output image and an expiry date when
-the image file will be removed from the server.
+Use simple-mappr to send structured, geographic data to
+the [SimpleMappr][9] API and receive either:
+
+* a hash containing a URL to the map image and its expiry date, or
+* a file to be downloaded
 
 Download and Installation
 -------------------------
 
 The latest version of SimpleMappr can be installed with RubyGems:
 
-    $ gem install simple-mappr
+```
+$ gem install simple-mappr
+```
 
-Source code can be downloaded on [GitHub][5].
+Source code can be downloaded on [GitHub][5]. See the public methods to learn all the setter.
 
 Example 1
 ---------
 
-    require 'simple-mappr'
-    sm = SimpleMappr.new
-    sm.points = ['45,-120\n50,-110','47,-100']
-    sm.color = ['255,0,0','0,255,0']
-    sm.size = [12,14]
-    sm.shape = ['circle','triangle']
-    sm.layers = 'blueMarble'
-    sm.zoom = 4
-    sm.width = 450
-    sm.create
+```ruby
+require 'simple-mappr'
+sm = SimpleMappr.new
+sm.points = ['45,-120\n50,-110','47,-100']
+sm.color = ['255,0,0','0,255,0']
+sm.size = [12,14]
+sm.shape = ['circle','triangle']
+sm.layers = 'blueMarble'
+sm.zoom = 4
+sm.width = 450
+sm.create
+```
 
 Returns a Hash:
 
-    {:imageURL=>"http://img.simplemappr.net/5792da8e_24f7_0.png", :expiry=>"2016-07-23T04:46:39-04:00"}
+```ruby
+{:imageURL=>"http://img.simplemappr.net/5792da8e_24f7_0.png", :expiry=>"2016-07-23T04:46:39-04:00"}
+```
 
 Corresponding to the image:
 
@@ -47,10 +54,15 @@ Corresponding to the image:
 Example 2
 ---------
 
-    require 'simple-mappr'
-    sm.SimpleMappr.new
-    sm.points = ['45,-120\n50,-110','47,-100']
-    sm.download("/tmp/my-map")
+```ruby
+require 'simple-mappr'
+sm = SimpleMappr.new
+sm.points = ['45,-120\n50,-110','47,-100']
+sm.output = 'svg'
+sm.download("/tmp/my-map") # file title without extension
+```
+
+Downloads the image to /tmp/my-map.svg
 
 License
 -------
