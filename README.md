@@ -2,6 +2,7 @@ simple-mappr
 ============
 
 [![Gem Version][1]][2]
+[![Gem Downloads][12]][13]
 [![Continuous Integration Status][3]][4]
 [![Dependency Status][10]][11]
 
@@ -102,3 +103,5 @@ Copyright (c) 2016 David P. Shorthouse
 [9]: http://www.simplemppr.net
 [10]: https://gemnasium.com/dshorthouse/simple-mappr.svg
 [11]: https://gemnasium.com/dshorthouse/simple-mappr
+[12]: https://img.shields.io/gem/dt/simple-mappr.svg
+[13]: https://rubygems.org/gems/simple-mappr
