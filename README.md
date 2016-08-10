@@ -64,6 +64,16 @@ sm.download("/tmp/my-map") # file title without extension
 
 Downloads the image to /tmp/my-map.svg
 
+Example 3
+---------
+
+```ruby
+require 'simple-mappr'
+sm = SimpleMappr.new
+sm.alive?
+```
+Returns true when the server is alive and ready.
+
 License
 -------
 
@@ -91,4 +101,4 @@ Copyright (c) 2016 David P. Shorthouse
 [8]: https://github.com/dshorthouse
 [9]: http://www.simplemppr.net
 [10]: https://gemnasium.com/dshorthouse/simple-mappr.svg
-[11]: https://gemnasium.com/dshorthouse/name-spotter
+[11]: https://gemnasium.com/dshorthouse/simple-mappr
