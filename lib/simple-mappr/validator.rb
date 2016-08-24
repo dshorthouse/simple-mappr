@@ -101,13 +101,13 @@ class SimpleMappr
     def self.validate_layers(data)
       validate_type(data, 'String')
       if !(data.split(",") - LAYERS).empty?
-        raise InvalidParameterValue, "Accepted layers are combinations of #{LAYERS.join(", ")}"
+        raise InvalidParameterValue, "Accepted layers are combinations of #{LAYERS.join(",")}"
       end
     end
 
     def self.validate_projection(data)
       if !PROJECTIONS.include?(data)
-        raise InvalidParameterValue, "Accepted projection values are #{PROJECTIONS.join(", ")}"
+        raise InvalidParameterValue, "Accepted projection value is one of #{PROJECTIONS.join(",")}"
       end
     end
 

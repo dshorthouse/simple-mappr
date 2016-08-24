@@ -36,6 +36,7 @@ class SimpleMappr
     'countries',
     'countrynames',
     'relief',
+    'reliefalt',
     'reliefgrey',
     'stateprovinces',
     'stateprovnames',
