@@ -285,6 +285,20 @@ describe "SimpleMappr" do
       end
     end
 
+    context "wkt" do
+      it "accepts an array as a value for wkt" do
+        wkt = [{ title: "My title", color: "255,0,0", data: "POLYGON((-70 63,-70 48,-106 48,-106 63,-70 63))" }]
+        sm.wkt = wkt
+        expect(sm.wkt).to eq(wkt)
+      end
+      it "raises an exception if wkt has an unrecognized hash key" do
+        expect{sm.wkt = [{ bad_key: "blank"}]}.to raise_error(subject::InvalidParameterValue)
+      end
+      it "raises an exception if wkt has an unrecognized color value" do
+        expect{sm.wkt = [{ color: "256,0,0"}]}.to raise_error(subject::InvalidParameterValue)
+      end
+    end
+
     context "zoom" do
       it "accepts a valid integer for the zoom" do
         sm.zoom = 4

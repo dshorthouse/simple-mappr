@@ -10,7 +10,7 @@ Gem::Specification.new do |s|
   s.summary     = "A gem to access the SimpleMappr API"
   s.description = "A gem to access the SimpleMappr API"
   s.authors     = ["David P. Shorthouse"]
-  s.email       = 'davidpshorthouse@gmail.com '
+  s.email       = 'davidpshorthouse@gmail.coms'
   s.homepage    = 'https://github.com/dshorthouse/simple-mappr'
 
   s.files        = Dir['MIT-LICENSE', 'README.rdoc', 'lib/**/*']

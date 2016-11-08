@@ -33,7 +33,7 @@ class SimpleMappr
   # == Example Output
   #
   #   {
-  #     imageURL: "http://img.simplemappr.local/579273e6_1dd1_2.png",
+  #     imageURL: "http://img.simplemappr.net/579273e6_1dd1_2.png",
   #      expiry: "2016-07-22T21:28:38-04:00"
   #   }
   #
@@ -379,6 +379,23 @@ class SimpleMappr
 
   def width
     @parameters[:width] || nil
+  end
+
+  ##
+  # Include wkt regions as a Hash
+  # Specify color, title, and data as keys
+  #
+  # == Example
+  #
+  #   instance.wkt = { color: "200,200,200", title: "My Regions", data: "POLYGON((-70 63,-70 48,-106 48,-106 63,-70 63))"}
+  #
+  def wkt=(wkt)
+    Validator.validate_wkt(wkt)
+    @parameters[:wkt] = wkt
+  end
+
+  def wkt
+    @parameters[:wkt] || nil
   end
 
   ##

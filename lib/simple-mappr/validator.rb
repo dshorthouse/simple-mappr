@@ -142,5 +142,16 @@ class SimpleMappr
       end
     end
 
+    def self.validate_wkt(data)
+      validate_type(data, 'Array')
+      data.each { |item| validate_type(item, 'Hash') }
+      if !(data[0].keys - [:data, :title, :color]).empty?
+        raise InvalidParameterValue, "wkt must be an Array of Hashes in the form [{ data: \"\", title: \"\", color: \"\" }]"
+      end
+      if data[0].key?(:color)
+        validate_color(data[0][:color])
+      end
+    end
+
   end
 end
