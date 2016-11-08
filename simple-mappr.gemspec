@@ -6,7 +6,7 @@ Gem::Specification.new do |s|
   s.name        = 'simple-mappr'
   s.version     = SimpleMappr::VERSION
   s.license     = 'MIT'
-  s.date        = '2016-08-24'
+  s.date        = '2016-11-08'
   s.summary     = "A gem to access the SimpleMappr API"
   s.description = "A gem to access the SimpleMappr API"
   s.authors     = ["David P. Shorthouse"]
