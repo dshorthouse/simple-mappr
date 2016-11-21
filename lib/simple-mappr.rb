@@ -34,7 +34,9 @@ class SimpleMappr
   #
   #   {
   #     imageURL: "http://img.simplemappr.net/579273e6_1dd1_2.png",
-  #      expiry: "2016-07-22T21:28:38-04:00"
+  #     expiry: "2016-07-22T21:28:38-04:00",
+  #     bad_points: [],
+  #     bad_drawings: []
   #   }
   #
   def create
@@ -58,7 +60,7 @@ class SimpleMappr
     end
     file = [file_title,output].join(".")
     File.open(file, 'wb') do |fo|
-      fo.write open(create[:imageURL]).read 
+      fo.write(Transporter.send_data(@parameters, true))
     end
     file
   end
@@ -382,12 +384,12 @@ class SimpleMappr
   end
 
   ##
-  # Include wkt regions as a Hash
-  # Specify color, title, and data as keys
+  # Include wkt regions as an Array of Hashes
+  # Specify color, title, and data as keys for each element
   #
   # == Example
   #
-  #   instance.wkt = { color: "200,200,200", title: "My Regions", data: "POLYGON((-70 63,-70 48,-106 48,-106 63,-70 63))"}
+  #   instance.wkt = [{ color: "200,200,200", title: "My Regions", data: "POLYGON((-70 63,-70 48,-106 48,-106 63,-70 63))" }]
   #
   def wkt=(wkt)
     Validator.validate_wkt(wkt)
