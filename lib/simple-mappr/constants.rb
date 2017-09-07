@@ -1,6 +1,6 @@
 class SimpleMappr
 
-  API_URL = "http://www.simplemappr.local/api/"
+  API_URL = "http://www.simplemappr.net/api/"
 
   PROJECTIONS = [
     'epsg:4326',
@@ -11,7 +11,8 @@ class SimpleMappr
     'esri:102024',
     'epsg:3112',
     'epsg:102017',
-    'epsg:102019'
+    'epsg:102019',
+    'epsg:54030'
   ]
 
   SHAPES = [
