@@ -248,6 +248,17 @@ describe "SimpleMappr" do
       end
     end
 
+    context "shadow" do
+      it "accepts shadow as an Array" do
+        shadow = [true,false]
+        sm.shadow = shadow
+        expect(sm.shadow).to eq(shadow)
+      end
+      it "raises an exception for non-Boolean values for shadow in Array" do
+        expect{sm.shadow = [true,'10']}.to raise_error(subject::InvalidParameterValue)
+      end
+    end
+
     context "spacing" do
       it "accepts a valid integer for the spacing of graticules" do
         sm.spacing = 4

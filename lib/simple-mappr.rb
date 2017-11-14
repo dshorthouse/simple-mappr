@@ -147,6 +147,22 @@ class SimpleMappr
   end
 
   ##
+  # Show/hide graticule labels
+  #
+  # == Example
+  #
+  #   instance.hide_gridlabel = true
+  #
+  def hide_gridlabel=(label)
+    Validator.validate_type(label, 'Boolean')
+    @parameters[:hide_gridlabel] = label
+  end
+
+  def hide_gridlabel
+    @parameters[:hide_gridlabel] || nil
+  end
+
+  ##
   # Specify the layers to include in the image
   # Expressed as a comma-separated String without spaces
   # See SimpleMappr.layers
@@ -333,6 +349,23 @@ class SimpleMappr
   end
 
   ##
+  # Specify if shadow should be drawn under corresponding points
+  # Must be boolean
+  #
+  # == Example
+  #
+  #   instance.shadow = [true,false]
+  #
+  def shadow=(shadow)
+    Validator.validate_shadows(shadow)
+    @parameters[:shadow] = shadow
+  end
+
+  def shadow
+    @parameters[:shadow] || nil
+  end
+
+  ##
   # Specify the spacing between graticule (grid) lines in degrees
   # Must be an Integer less than or equal to 10
   #
@@ -385,7 +418,7 @@ class SimpleMappr
 
   ##
   # Include wkt regions as an Array of Hashes
-  # Specify color, title, and data as keys for each element
+  # Specify color, title, data, and border as keys for each element
   #
   # == Example
   #

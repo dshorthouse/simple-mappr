@@ -73,6 +73,11 @@ class SimpleMappr
       end
     end
 
+    def self.validate_shadows(data)
+      validate_type(data, 'Array')
+      data.each { |item| validate_type(item, 'Boolean') }
+    end
+
     def self.validate_url(data)
       validate_type(data, 'String')
       if data !~ /\A#{URI::regexp(['http', 'https'])}\z/
@@ -145,8 +150,8 @@ class SimpleMappr
     def self.validate_wkt(data)
       validate_type(data, 'Array')
       data.each { |item| validate_type(item, 'Hash') }
-      if !(data[0].keys - [:data, :title, :color]).empty?
-        raise InvalidParameterValue, "wkt must be an Array of Hashes in the form [{ data: \"\", title: \"\", color: \"\" }]"
+      if !(data[0].keys - [:data, :title, :color, :border]).empty?
+        raise InvalidParameterValue, "wkt must be an Array of Hashes in the form [{ data: \"\", title: \"\", color: \"\", border: \"\" }]"
       end
       if data[0].key?(:color)
         validate_color(data[0][:color])

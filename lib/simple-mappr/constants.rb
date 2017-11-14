@@ -12,7 +12,8 @@ class SimpleMappr
     'epsg:3112',
     'epsg:102017',
     'epsg:102019',
-    'epsg:54030'
+    'epsg:54030',
+    'epsg:3395'
   ]
 
   SHAPES = [
@@ -41,6 +42,7 @@ class SimpleMappr
     'reliefgrey',
     'stateprovinces',
     'stateprovnames',
+    'us_counties',
     'lakes',
     'lakesOutline',
     'lakenames',
