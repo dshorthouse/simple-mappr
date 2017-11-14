@@ -79,6 +79,20 @@ describe "SimpleMappr" do
       end
     end
 
+    context "hide_gridlabels" do
+      it "accepts true for hiding graticule labels and returns true" do
+        sm.hide_gridlabel = true
+        expect(sm.hide_gridlabel).to be true
+      end
+      it "accepts false for hiding graticule labels and returns nil" do
+        sm.hide_gridlabel = false
+        expect(sm.hide_gridlabel).to be nil
+      end
+      it "it raises an exception with invalid hiding of graticule labels" do
+        expect{sm.hide_gridlabel = "true"}.to raise_error(subject::InvalidParameterValue)
+      end
+    end
+
     context "height" do
       it "accepts a valid integer for the height" do
         sm.height = 1_000
