@@ -8,7 +8,7 @@ class SimpleMappr
 
     def self.send_data params, download = false
       Validator.validate_type(params, 'Hash')
-      params.delete_if{ |k,v| !v }
+      params.delete_if{ |k,v| v.nil? }
       RestClient.post(API_URL, params) do |response, request, result, &block|
         if response.code == 303 && download
           response.follow_redirection

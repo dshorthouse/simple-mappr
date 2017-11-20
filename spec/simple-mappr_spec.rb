@@ -297,6 +297,17 @@ describe "SimpleMappr" do
       end
     end
 
+    context "watermark" do
+      it "accepts watermark as a Boolean" do
+        watermark = true
+        sm.watermark = watermark
+        expect(sm.watermark).to eq(watermark)
+      end
+      it "raises an exception for non-Boolean values for watermark" do
+        expect{sm.watermark = '10'}.to raise_error(subject::InvalidParameterValue)
+      end
+    end
+
     context "width" do
       it "accepts a valid integer for the height" do
         sm.height = 1_000

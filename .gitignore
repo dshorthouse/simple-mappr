@@ -17,6 +17,9 @@ doc
 # bundler
 .bundle
 
+# byebug
+.byebug_history
+
 # jeweler generated
 pkg
 

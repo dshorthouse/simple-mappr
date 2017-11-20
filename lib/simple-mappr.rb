@@ -400,6 +400,23 @@ class SimpleMappr
   end
 
   ##
+  # Specify if watermark is shown
+  # Must be boolean
+  #
+  # == Example
+  #
+  #   instance.watermark = [true,false]
+  #
+  def watermark=(mark)
+    Validator.validate_watermark(mark)
+    @parameters[:watermark] = mark
+  end
+
+  def watermark
+    @parameters[:watermark] || nil
+  end
+
+  ##
   # Specify the width of the output in pixels
   # Must be less than or eqaual to 4500
   #

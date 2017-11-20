@@ -158,5 +158,9 @@ class SimpleMappr
       end
     end
 
+    def self.validate_watermark(data)
+      validate_type(data, 'Boolean')
+    end
+
   end
 end
