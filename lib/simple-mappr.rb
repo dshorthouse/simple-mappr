@@ -58,11 +58,9 @@ class SimpleMappr
     if !file_title
       raise InvalidParameterValue, "File path is required"
     end
-    file = [file_title,output].join(".")
-    File.open(file, 'wb') do |fo|
-      fo.write(Transporter.send_data(@parameters, true))
-    end
-    file
+    file_name = [file_title,output].join(".")
+    IO.copy_stream(open(create[:imageURL]), file_name)
+    file_name
   end
 
   ##

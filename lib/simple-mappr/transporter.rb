@@ -6,15 +6,13 @@ require "simple-mappr/validator"
 class SimpleMappr
   class Transporter
 
-    def self.send_data params, download = false
+    def self.send_data params
       Validator.validate_type(params, 'Hash')
       params.delete_if{ |k,v| v.nil? }
-      RestClient.post(API_URL, params) do |response, request, result, &block|
-        if response.code == 303 && download
-          response.follow_redirection
-        else
-          JSON.parse(response.body, :symbolize_names => true)
-        end
+      begin
+        RestClient::Request.execute(method: :post, url: API_URL, payload: params, max_redirects: 0)
+      rescue RestClient::ExceptionWithResponse => err
+        JSON.parse(err.response.body, :symbolize_names => true)
       end
     end
 
