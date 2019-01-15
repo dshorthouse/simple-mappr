@@ -1,6 +1,6 @@
 class SimpleMappr
 
-  API_URL = "http://www.simplemappr.net/api/"
+  API_URL = "https://www.simplemappr.net/api/"
 
   PROJECTIONS = [
     'epsg:4326',
